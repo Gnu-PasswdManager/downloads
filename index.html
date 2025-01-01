@@ -14,33 +14,65 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: row; /* Change direction */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            gap: 20px; /* Espace beetwen */
+            overflow: hidden;
+            animation: backgroundAnimation 6s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+            }
+            100% {
+                background: linear-gradient(135deg, #2a5298, #1e3c72);
+            }
+        }
+
+        .layout {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1400px;
         }
 
         header {
             text-align: center;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(255, 255, 255, 0.2); 
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-            width: 30%; 
-            margin:  4%;
-            animation: fadeIn 1s ease-in-out;
+            width: 35%;
+            animation: fadeIn 1.5s ease-in-out;
+            transform: translateX(100%);
         }
 
         .container {
             text-align: center;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(255, 255, 255, 0.2); 
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-            margin: 4%;
-            width: 50%;
-            animation: fadeIn 1s ease-in-out;
+            width: 60%;
+            animation: fadeIn 1.5s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        header, .container {
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         h1, h2, h3 {
@@ -79,40 +111,23 @@
             padding: 10px;
             border-radius: 8px;
             overflow-x: auto;
+            animation: fadeInText 2s ease-in-out;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInText {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
+            .layout {
                 flex-direction: column;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            h3 {
-                font-size: 1.2em;
-            }
-
-            a {
-                font-size: 1em;
-                padding: 8px 15px;
+                align-items: center;
             }
 
             header, .container {
@@ -146,25 +161,28 @@
     </style>
 </head>
 <body>
-<header>
-    <h1><strong>GNU-PasswdManager</strong></h1>
-    <h3>Manage your passwords with encryption and a user-friendly GUI.</h3>
-    <p><a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025" target="_blank">&COPY;2025 Jaime Galvez Martinez</a></p>
-    <p>This project is released under GNU License</p>
-</header>
-<div class="container">
-    <h2>Download the Latest Version</h2>
-    <p>Choose the version for your operating system:</p>
-    <h3>For Linux/Mac:</h3>
-    <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/raw/refs/heads/main/GNU-PasswdManager-Latest.tar.gz" target="_blank" download>Download .tar.gz Package for Linux</a>
-    <p>Install using:</p>
-    <pre>sudo tar -xzvf GNU-PasswdManager-Latest.tar.gz</pre>
-    <p><a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/blob/main/README.md" target="_blank" download>Read the README file from GitHub</a></p>
-    <h3>For Windows 10/11:</h3>
-    <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/raw/refs/heads/main/GNU-PasswdManager.rar" download>Download .rar Installer that contains the .exe for Windows</a>
-    <p><strong>Unzip the .rar folder, then, run the .exe.</strong></p>
-    <h3>Download the Source Code:</h3>
-    <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/blob/main/GNU-PasswdManager.py" target="_blank" download>Download Source Code</a>
+<div class="layout">
+    <header>
+        <h1><strong>GNU-PasswdManager</strong></h1>
+        <h3>Manage your passwords with encryption and a user-friendly GUI.</h3>
+        <p><a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025" target="_blank">&COPY;2025 Jaime Galvez Martinez</a></p>
+        <p>This project is released under GNU License</p>
+    </header>
+    <div class="container">
+        <h2>Download the Latest Version</h2>
+        <p>Choose the version for your operating system:</p>
+        <h3>For Linux/Mac:</h3>
+        <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/raw/refs/heads/main/GNU-PasswdManager-Latest.tar.gz" target="_blank" download>Download .tar.gz Package for Linux</a>
+        <p>Install using:</p>
+        <pre>sudo tar -xzvf GNU-PasswdManager-Latest.tar.gz</pre>
+        <p><a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/blob/main/README.md" target="_blank" download>Read the README file from GitHub</a></p>
+        <h3>For Windows 10/11:</h3>
+        <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/raw/refs/heads/main/GNU-PasswdManager.rar" download>Download .rar Installer for Windows</a>
+        <p>Run the installer after downloading.</p>
+        <h3>Download the Source Code:</h3>
+        <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/blob/main/GNU-PasswdManager.py" target="_blank" download>Download Source Code</a>
+    </div>
 </div>
 </body>
 </html>
+
