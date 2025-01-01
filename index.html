@@ -186,6 +186,12 @@
         <a href="https://github.com/TheHellishPandaa/GNU-PasswdManager2025/blob/main/GNU-PasswdManager.py" target="_blank" download>Download Source Code</a>
     </div>
 </div>
+    <script>
+    // Increment the visit counter in localStorage
+    const visitCount = localStorage.getItem('visitCount') || 0;
+    localStorage.setItem('visitCount', parseInt(visitCount) + 1);
+    document.getElementById('visit-count').textContent = localStorage.getItem('visitCount');
+</script>
 </body>
 </html>
 
